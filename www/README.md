@@ -1,8 +1,8 @@
-# CornerStone ES6 ⚛
+# Merry Christmas 2017 ⚛
 
 ![Herb](static/images/logo.png)
 
-A Rollup boilerplate with babel and node-sass.
+2017 Christmas Memory Game
 
 ## Getting Started
 
