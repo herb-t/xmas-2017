@@ -1,0 +1,58 @@
+{
+  "name": "cornerstone-ES6",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "modern": true,
+  "scripts": {
+    "serve": "browser-sync start --server out --files out --no-ghost-mode --no-notify --no-open",
+    "clean": "shx rm -rf out",
+    "mkdir": "shx mkdir out",
+    "format": "prettier-eslint --write \"src/**/*.js\"",
+    "watch": "npm-run-all clean mkdir format --parallel watch:*",
+    "watch:copy": "cpx \"static/**/*\" out --watch",
+    "watch:sass": "node build-sass.js --watch",
+    "watch:main": "node build-rollup.js --watch",
+    "build": "npm-run-all clean mkdir format build:*",
+    "build:copy": "cpx \"static/**/*\" out",
+    "build:sass": "node build-sass.js",
+    "build:main": "node build-rollup.js",
+    "prod": "npm-run-all clean mkdir prod:*",
+    "prod:copy": "cpx \"static/**/*\" out",
+    "prod:sass": "node build-sass.js --prod",
+    "prod:main": "node build-rollup.js --prod",
+    "gae": "npm-run-all prod gae:*",
+    "gae:static": "cpx \"out/**/*\" gae/static"
+  },
+  "pre-commit": [
+    "format"
+  ],
+  "dependencies": {
+    "debug": "^2.6.0",
+    "flexbox-grid-sass": "^4.1.0",
+    "is_js": "^0.9.0"
+  },
+  "devDependencies": {
+    "autoprefixer-stylus": "^0.13.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.0",
+    "browser-sync": "^2.18.7",
+    "cpx": "^1.5.0",
+    "custom-event": "^1.0.1",
+    "node-sass": "^4.5.3",
+    "npm-run-all": "^4.0.1",
+    "pepjs": "^0.4.2",
+    "pre-commit": "^1.2.2",
+    "prettier-eslint-cli": "^3.4.2",
+    "rollup": "^0.41.4",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^7.0.0",
+    "rollup-plugin-eslint": "^3.0.0",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-uglify": "^1.0.1",
+    "rollup-plugin-vue": "^2.2.20",
+    "shx": "^0.2.2",
+    "yargs": "^6.6.0"
+  }
+}
