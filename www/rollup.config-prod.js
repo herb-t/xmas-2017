@@ -3,7 +3,6 @@ const commonjs = require('rollup-plugin-commonjs');
 const eslint = require('rollup-plugin-eslint');
 const noderesolve = require('rollup-plugin-node-resolve');
 const uglify = require('rollup-plugin-uglify');
-const vue = require('rollup-plugin-vue');
 
 module.exports = {
   context: 'window',
